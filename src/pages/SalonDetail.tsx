@@ -193,7 +193,7 @@ const SalonDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent pointer-events-none" />
 
         {/* Nav buttons */}
-        <div className="absolute top-0 left-0 right-0 pt-[env(safe-area-inset-top)] px-4 pt-4 flex justify-between">
+        <div className="absolute top-0 left-0 right-0 px-4 flex justify-between" style={{ paddingTop: 'calc(var(--inset-top) + 12px)' }}>
           <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center border border-border/30 min-h-[44px] min-w-[44px]">
             <ArrowLeft size={18} className="text-foreground" />
           </button>
