@@ -256,12 +256,14 @@ img {
     @apply border-border;
   }
 
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
   html {
-    /* Prevent WebView overscroll bounce */
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
-    /* Prevent pull-to-refresh in Chrome Android WebView */
-    overflow-y: auto;
   }
 
   body {
@@ -272,7 +274,6 @@ img {
     -webkit-text-size-adjust: 100%;
     overscroll-behavior-y: none;
     -webkit-touch-callout: none;
-    /* WebView native illusion */
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
