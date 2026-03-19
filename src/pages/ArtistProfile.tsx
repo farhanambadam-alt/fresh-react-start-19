@@ -96,7 +96,7 @@ const ArtistProfile = () => {
           </>
         )}
         {/* Top nav */}
-        <div className="absolute top-0 left-0 right-0 px-4 pt-4 flex justify-between">
+        <div className="absolute top-0 left-0 right-0 px-4 flex justify-between" style={{ paddingTop: 'calc(var(--inset-top) + 12px)' }}>
           <button
             onClick={() => navigate(-1)}
             className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-md flex items-center justify-center border border-border/30 min-h-[44px] min-w-[44px]"
@@ -347,8 +347,8 @@ const ArtistProfile = () => {
       {/* Sticky Bottom Bar */}
       {cartCount > 0 && (
         <div
-          className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 z-50"
-          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out' }}
+          className="absolute bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 z-50"
+          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out', paddingBottom: 'var(--inset-bottom)' }}
         >
           {shortfall > 0 && (
             <div className="flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-xl px-3 py-2 mt-3">

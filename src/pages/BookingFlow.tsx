@@ -71,7 +71,7 @@ const BookingFlow = () => {
   return (
     <div className="min-h-screen pb-28 md:max-w-5xl md:mx-auto">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-card/90 backdrop-blur-md border-b border-border/50 px-4 py-3">
+      <header className="sticky top-0 z-40 bg-card/90 backdrop-blur-md border-b border-border/50 px-4 pb-3" style={{ paddingTop: 'calc(var(--inset-top) + 12px)' }}>
         <div className="flex items-center gap-3">
           <button
             onClick={() => {
@@ -369,7 +369,7 @@ const BookingFlow = () => {
       )}
 
       {/* Sticky Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-4 py-3 z-50" style={{ boxShadow: 'var(--shadow-bottom-bar)' }}>
+      <div className="absolute bottom-0 left-0 right-0 bg-card border-t border-border px-4 pt-3 z-50" style={{ boxShadow: 'var(--shadow-bottom-bar)', paddingBottom: 'calc(var(--inset-bottom) + 12px)' }}>
         <div className="max-w-lg mx-auto">
           {step === 'datetime' && (
             <button
