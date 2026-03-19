@@ -369,7 +369,7 @@ const BookingFlow = () => {
       )}
 
       {/* Sticky Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-4 py-3 z-50" style={{ boxShadow: 'var(--shadow-bottom-bar)' }}>
+      <div className="absolute bottom-0 left-0 right-0 bg-card border-t border-border px-4 pt-3 z-50" style={{ boxShadow: 'var(--shadow-bottom-bar)', paddingBottom: 'calc(var(--inset-bottom) + 12px)' }}>
         <div className="max-w-lg mx-auto">
           {step === 'datetime' && (
             <button
