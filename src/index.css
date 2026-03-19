@@ -78,6 +78,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Flutter WebView CSS Reset ── */
+::-webkit-scrollbar { display: none; }
+* {
+  scrollbar-width: none;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  -webkit-user-drag: none;
+}
+
+/* ── Hybrid Safe Area System ── */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  --flutter-top: 0px;
+  --flutter-bottom: 0px;
+  --flutter-left: 0px;
+  --flutter-right: 0px;
+
+  --inset-top: max(var(--safe-top), var(--flutter-top));
+  --inset-bottom: max(var(--safe-bottom), var(--flutter-bottom));
+  --inset-left: max(var(--safe-left), var(--flutter-left));
+  --inset-right: max(var(--safe-right), var(--flutter-right));
+}
+
 @layer base {
   /* ── Default (neutral) ── */
   :root {
@@ -228,12 +256,14 @@
     @apply border-border;
   }
 
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
   html {
-    /* Prevent WebView overscroll bounce */
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
-    /* Prevent pull-to-refresh in Chrome Android WebView */
-    overflow-y: auto;
   }
 
   body {
@@ -244,7 +274,6 @@
     -webkit-text-size-adjust: 100%;
     overscroll-behavior-y: none;
     -webkit-touch-callout: none;
-    /* WebView native illusion */
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -319,7 +348,7 @@
 
   /* Safe-area-aware bottom padding for pages with bottom nav */
   .pb-safe {
-    padding-bottom: calc(max(env(safe-area-inset-bottom, 0px), 12px) + 80px);
+    padding-bottom: calc(var(--inset-bottom) + 80px);
   }
 
   /* CSS animations for background dots/sparkles — replaces SVG <animate> */

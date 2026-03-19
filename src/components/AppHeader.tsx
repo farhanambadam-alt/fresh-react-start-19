@@ -106,11 +106,11 @@ const AppHeader = ({
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-40"
+        className="sticky top-0 left-0 right-0 z-40"
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 6px)',
-          paddingLeft: 'env(safe-area-inset-left, 0px)',
-          paddingRight: 'env(safe-area-inset-right, 0px)',
+          paddingTop: 'calc(var(--inset-top) + 6px)',
+          paddingLeft: 'var(--inset-left)',
+          paddingRight: 'var(--inset-right)',
           background: scrolled ? solidBg : transparentBg,
           borderBottom: scrolled
             ? '1px solid hsl(var(--border) / 0.5)'
@@ -125,7 +125,6 @@ const AppHeader = ({
             'background 0.35s ease, border-bottom 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease',
         }}
       >
-        {/* Full-width bg, content centered */}
         <div className="max-w-7xl mx-auto px-5 md:px-8 pb-2.5 pt-1">
           <div className="flex items-center justify-between">
             {leftSlot ?? defaultLeft}
@@ -133,14 +132,6 @@ const AppHeader = ({
           </div>
         </div>
       </header>
-
-      {/* Spacer — matches header height to prevent content overlap */}
-      <div
-        aria-hidden="true"
-        style={{
-          height: 'calc(env(safe-area-inset-top, 0px) + 64px)',
-        }}
-      />
 
       {/* Drawers */}
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />

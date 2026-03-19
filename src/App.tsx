@@ -34,36 +34,41 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="relative min-h-screen overflow-hidden">
-            <div className="fixed inset-0 -z-10 pointer-events-none">
+          {/* Root shell: flex column, fills viewport, no 100vh */}
+          <div className="relative flex flex-col h-full overflow-hidden">
+            {/* Edge-to-edge background */}
+            <div className="absolute inset-0 -z-10 pointer-events-none">
               <GenderBackground />
             </div>
-            <div className="relative z-0 max-w-7xl mx-auto md:px-8">
-              <Suspense fallback={
-                <div className="min-h-screen flex items-center justify-center">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-8 h-8 border-[3px] border-muted-foreground/20 border-t-primary rounded-full animate-spin" />
-                    <span className="text-xs text-muted-foreground font-body">Loading…</span>
+            {/* Scrollable content area */}
+            <div className="relative z-0 flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div className="max-w-7xl mx-auto md:px-8">
+                <Suspense fallback={
+                  <div className="flex items-center justify-center" style={{ minHeight: '100%' }}>
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="w-8 h-8 border-[3px] border-muted-foreground/20 border-t-primary rounded-full animate-spin" />
+                      <span className="text-xs text-muted-foreground font-body">Loading…</span>
+                    </div>
                   </div>
-                </div>
-              }>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/salon/:id" element={<SalonDetail />} />
-                  <Route path="/booking/:id" element={<BookingFlow />} />
-                  <Route path="/bookings" element={<Bookings />} />
-                  <Route path="/offers" element={<Offers />} />
-                  <Route path="/explore" element={<Explore />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/at-home" element={<AtHome />} />
-                  <Route path="/artist/:id" element={<ArtistProfile />} />
-                  <Route path="/at-home-booking/:id" element={<AtHomeBooking />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-              <CartPill />
-              <BottomNav />
+                }>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/salon/:id" element={<SalonDetail />} />
+                    <Route path="/booking/:id" element={<BookingFlow />} />
+                    <Route path="/bookings" element={<Bookings />} />
+                    <Route path="/offers" element={<Offers />} />
+                    <Route path="/explore" element={<Explore />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/at-home" element={<AtHome />} />
+                    <Route path="/artist/:id" element={<ArtistProfile />} />
+                    <Route path="/at-home-booking/:id" element={<AtHomeBooking />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </div>
             </div>
+            <CartPill />
+            <BottomNav />
           </div>
           <SalonSwitchModal />
         </BrowserRouter>
