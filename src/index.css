@@ -78,6 +78,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Flutter WebView CSS Reset ── */
+::-webkit-scrollbar { display: none; }
+* {
+  scrollbar-width: none;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  -webkit-user-drag: none;
+}
+
+/* ── Hybrid Safe Area System ── */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  --flutter-top: 0px;
+  --flutter-bottom: 0px;
+  --flutter-left: 0px;
+  --flutter-right: 0px;
+
+  --inset-top: max(var(--safe-top), var(--flutter-top));
+  --inset-bottom: max(var(--safe-bottom), var(--flutter-bottom));
+  --inset-left: max(var(--safe-left), var(--flutter-left));
+  --inset-right: max(var(--safe-right), var(--flutter-right));
+}
+
 @layer base {
   /* ── Default (neutral) ── */
   :root {
