@@ -801,8 +801,8 @@ const SalonDetail = () => {
 
       {cartCount > 0 && (
         <div
-          className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 py-3.5 z-50 md:border md:rounded-2xl md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:max-w-xl md:w-full md:shadow-lg"
-          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out' }}
+          className="absolute bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 pt-3.5 z-50 md:border md:rounded-2xl md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:max-w-xl md:w-full md:shadow-lg"
+          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out', paddingBottom: 'calc(var(--inset-bottom) + 14px)' }}
         >
           <div className="flex items-center justify-between max-w-lg mx-auto">
             <div>

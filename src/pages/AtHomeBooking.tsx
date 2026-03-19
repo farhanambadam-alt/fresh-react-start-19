@@ -71,7 +71,7 @@ const AtHomeBooking = () => {
   return (
     <div className="min-h-screen pb-28">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-card/90 backdrop-blur-md border-b border-border/50 px-4 py-3">
+      <header className="sticky top-0 z-40 bg-card/90 backdrop-blur-md border-b border-border/50 px-4 pb-3" style={{ paddingTop: 'calc(var(--inset-top) + 12px)' }}>
         <div className="flex items-center gap-3">
           <button
             onClick={() => {

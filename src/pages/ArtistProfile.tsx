@@ -347,8 +347,8 @@ const ArtistProfile = () => {
       {/* Sticky Bottom Bar */}
       {cartCount > 0 && (
         <div
-          className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 z-50"
-          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out' }}
+          className="absolute bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border px-5 z-50"
+          style={{ boxShadow: 'var(--shadow-bottom-bar)', animation: 'slide-up 0.3s ease-out', paddingBottom: 'var(--inset-bottom)' }}
         >
           {shortfall > 0 && (
             <div className="flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-xl px-3 py-2 mt-3">
